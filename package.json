@@ -5,11 +5,11 @@
   "main": "dist/crud.js",
   "repository": {
     "type": "git",
-    "url": "ssh://git@stash.office.dev:7999/af/crud.git"
+    "url": "https://github.com/imaximius/crud.git"
   },
-  "author": "Artem Morozov <artemm@migfin.com>",
+  "author": "Anonymous",
   "license": "MIT",
-  "homepage": "http://stash.office.dev/projects/AF/repos/crud/browse",
+  "homepage": "https://github.com/imaximius/crud",
   "devDependencies": {
     "del": "^2.2.0",
     "gulp": "^3.9.1",
