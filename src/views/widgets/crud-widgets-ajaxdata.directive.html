@@ -1,0 +1,22 @@
+<label class="col-lg-3 control-label">{{options.translateLabel | translate}}</label>
+<div class="col-lg-9" ng-class="options.hasError?'has-error has-danger':''">
+    <select
+        id="!options.widgetid"
+        class="form-control"
+        name="{{name}}"
+        ng-blur="options.hasError = false"
+        ng-model="value.value"
+        ng-disabled="!options.editable"
+        ng-options="choice.id as choice.label | translate for choice in options.choices"
+        ng-change="onValueChange()"/>
+</div>
+
+<div class="widget-value-ajax-data col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <div ng-repeat="(key, widget) in value.widgets">
+        <div wr-crud-widgets-dynamic="widget.type"
+             class="crud-widgets form-group"
+             name="widget.name"
+             options="widget.options"
+             value="widget.value"></div>
+    </div>
+</div>

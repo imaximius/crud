@@ -1,0 +1,11 @@
+<form ng-class="actionBlock?'traditional whirl':''" class="form-validate form-horizontal" name="{{name}}">
+    <div ng-repeat="(key, widget) in widgets">
+        <div wr-crud-widgets-dynamic="widget.type" ng-class="options.isGrid?'col-lg-6':''" class="crud-widgets form-group" name="widgets[$index].name" options="widgets[$index].options" value="widgets[$index].value"></div>
+    </div>
+
+    <div class="form-group mb0" ng-class="options.isGrid?'col-lg-6':''">
+        <div class="col-lg-offset-3 col-lg-9">
+            <button ng-repeat="(key, action) in actions" ng-class="!$first ? 'ml' : ''" class="btn btn-{{action.class ? action.class : 'default'}}" action-name="{{action.name}}" ng-click="actions[$index].action()" ng-disabled="actionBlock"><em class="mr-sm {{action.icon}}" />{{action.title | translate}}</button>
+        </div>
+    </div>
+</form>

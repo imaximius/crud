@@ -1,0 +1,11 @@
+<label class="col-lg-3 control-label">{{options.translateLabel | translate}}</label>
+<div class="col-lg-9" ng-class="options.hasError?'has-error has-danger':''">
+    <input
+        type="text"
+        class="form-control"
+        ng-blur="options.hasError = false"
+        placeholder="{{options.placeholder | translate}}"
+        name="{{name}}"
+        ng-model="value"
+        ng-disabled="!options.editable"/>
+</div>

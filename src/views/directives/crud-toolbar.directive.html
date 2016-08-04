@@ -1,0 +1,7 @@
+<div>
+    <div ng-repeat="(groupIndex, group) in groups" ng-class="$first?'':'mr'" name="{{group.name}}" class="btn-group pull-right">
+        <button ng-repeat="(buttonIndex, button) in group.buttons" ng-click="triggerCallback(groupIndex, buttonIndex)" uib-tooltip="{{button.view.label | translate}}" ng-disabled="button.disabled" class="btn btn-sm" ng-class="button.view.btnClass">
+            <em ng-class="button.view.icon"></em>
+        </button>
+    </div>
+</div>

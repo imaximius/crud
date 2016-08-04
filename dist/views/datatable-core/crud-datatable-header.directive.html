@@ -1,0 +1,13 @@
+<tr>
+    <th ng-if='hasCheckbox' class="bt0 bl0 text-center" style="width: 21px;">
+        <div class="checkbox c-checkbox mr0 ng-scope">
+            <label>
+                <input type="checkbox" ng-change="selectRow()" ng-model="dt.selectAll">
+                <span class="fa fa-check mr0"></span>
+            </label>
+        </div>
+    </th>
+    <th class='bt0 bl0 text-center' ng-repeat="column in columns" ng-class="getSortClass($index) + (column.className ? column.className : '')" ng-click="sortByIndex($index)">{{column.data | translate}}</th>
+    <th ng-if='hasDropdown' class="text-center" style="width: 21px;">
+    </th>
+</tr>

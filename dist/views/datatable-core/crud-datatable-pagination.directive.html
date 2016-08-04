@@ -1,0 +1,9 @@
+<div class="dataTables_length">
+    <label>
+        {{language && language.lengthMenu && language.lengthMenu.split("_")[0] ? language.lengthMenu.split("_")[0] : ''}}
+        <select ng-model="pagination" ng-change="onPaginationChanged()">
+            <option ng-repeat="option in availableOptions" ng-value="option">{{option}}</option>
+        </select>
+        {{language && language.lengthMenu && language.lengthMenu.split("_")[2] ? language.lengthMenu.split("_")[2] : ''}}
+    </label>
+</div>

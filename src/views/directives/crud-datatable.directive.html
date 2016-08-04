@@ -1,0 +1,23 @@
+<div ng-class="!isLoaded ? 'whirl traditional': ''">
+    <div class='dataTables_wrapper'>
+        <div class="datatable-header">
+            <wr-crud-datatable-pagination ng-if="serverOptions && serverOptions.hasOwnProperty('paging')?serverOptions.paging:true" language="language" pagination="dt.options.pagination" refresh="refresh(goToFirst)"></wr-crud-datatable-pagination>
+            <wr-crud-datatable-search ng-if="serverOptions && serverOptions.hasOwnProperty('searching')?serverOptions.searching:true" language="language" search="dt.options.search" refresh="refresh(goToFirst)"></wr-crud-datatable-search>
+        </div>
+        <div class="dataTables-container without-dropdowns">
+            <table class="dataTable table-bordered table-striped" ng-class="">
+                <thead wr-crud-datatable-header has-checkbox="serverOptions.hasCheckboxes" has-dropdown="serverOptions.hasDropdowns" on-select-all="onSelectAll()" dt="dt" not-sortable="dt.customDatatableView.notSortable" columns="dt.options.columns" sort-column="dt.options.sortColumn" sort-column-asc="dt.options.sortColumnAsc" refresh="refresh(goToFirst)"></thead>
+                <tbody>
+                    <tr wr-crud-datatable-row ng-repeat="row in rows" row="row" has-dropdown="serverOptions.hasDropdowns" on-select-row="onSelectRow()" actions="options.actions" ></tr>
+                    <tr ng-if="rows && rows.length===0">
+                        <td class="dataTables_empty" colspan="{{dt.options.columns.length}}">{{language.zeroRecords}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="datatable-footer" ng-if="rows">
+            <wr-crud-datatable-info ng-if="serverOptions && serverOptions.hasOwnProperty('paging')?serverOptions.paging:true" language="language" pagination="dt.options.pagination" page="dt.options.page" total="dt.options.total"></wr-crud-datatable-info>
+            <wr-crud-datatable-pages ng-if="serverOptions && serverOptions.hasOwnProperty('paging')?serverOptions.paging:true" language="language" page="dt.options.page" pages-count="dt.pagesCount" refresh="refresh()"></wr-crud-datatable-pages>
+        </div>
+    </div>
+</div>

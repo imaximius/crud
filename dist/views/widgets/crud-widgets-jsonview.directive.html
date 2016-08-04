@@ -1,0 +1,7 @@
+<label class="col-lg-3 control-label">{{options.translateLabel | translate}}</label>
+<div class="col-lg-9" >
+    <span class="input-group-btn" style="padding: 1%">
+        <button type="button" class="btn btn-default" style="width: 100%" ng-click="showJson = !showJson">{{options.placeholder | translate}}</button>
+    </span>
+    <pre ng-show="showJson" ng-bind="value | prettyJson | json"></pre>
+</div>

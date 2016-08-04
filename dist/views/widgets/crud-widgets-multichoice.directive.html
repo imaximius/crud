@@ -1,0 +1,19 @@
+<label class="col-lg-3 control-label">{{options.translateLabel | translate}}</label>
+<div class="col-lg-9" ng-class="options.hasError?'has-error has-danger':''">
+    <ui-select
+        class="form-control"
+        name="{{name}}"
+        ng-model="value.choices"
+        ng-disabled="!options.editable"
+        multiple="true"
+        ng-blur="options.hasError = false"
+        theme="bootstrap">
+        <ui-select-match placeholder="{{options.placeholder | translate}}">
+            {{$item.label}}
+        </ui-select-match>
+        <ui-select-choices
+            repeat="choice.id as choice in (options.choices | filter: $select.search)">
+            <div>{{choice.label}}</div>
+        </ui-select-choices>
+    </ui-select>
+</div>

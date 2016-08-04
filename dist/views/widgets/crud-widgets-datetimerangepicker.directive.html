@@ -1,0 +1,13 @@
+<label class="col-lg-3 control-label">{{options.translateLabel | translate}}</label>
+<div class="col-lg-9" ng-class="options.hasError?'has-error has-danger':''">
+    <input date-range-picker
+    type="text"
+    placeholder="{{options.placeholder | translate}}"
+    class="form-control date-picker"
+    ng-model="value"
+    ng-blur="options.hasError = false"
+    name="{{name}}"
+    options="localOptions"
+    ng-disabled="!options.editable"
+    readonly />
+</div>

@@ -1,0 +1,86 @@
+<div ng-controller="CRUDController as vm">
+    <h3>
+        <em class="{{ icon }} mr"></em>
+        <span translate="{{ title }}"></span>
+    </h3>
+
+    <div ng-class="!vm.initLoader?'':'whirl traditional'">
+        <wr-crud-filter options="vm.filter" src="vm.initSrc"></wr-crud-filter>
+
+        <div class="panel panel-default">
+            <div class="panel-heading pb0">
+                <div class="row">
+                    <div class="col-xs-6">
+                        <h3 class="panel-title mt">
+                            <em class="icon-layers mr-sm"></em>
+                            {{ 'admin.general.DATA_LIST' | translate }}
+                        </h3>
+                    </div>
+                    <div class="col-xs-6">
+                        <!-- <zz-toolbar manifest="vm.toolbar"></zz-toolbar> -->
+                        <wr-crud-toolbar options="vm.toolbar"></wr-crud-toolbar>
+                    </div>
+                </div>
+                <hr class="mt mb0"/>
+            </div>
+            <div class="panel-body">
+                <!-- <zz-datatable manifest="vm.datatable"></zz-datatable> -->
+                <wr-crud-datatable options="vm.datatable" custom-datatable-view="customDatatableView"></wr-crud-datatable>
+            </div>
+        </div>
+    </div>
+
+    <toaster-container toaster-options="{'position-class': 'toast-bottom-right'}"></toaster-container>
+
+    <script type="text/ng-template" id="crud/dialog.html">
+
+        <div ng-controller="CRUDDialogController as vm">
+            <div class="whirl traditional" ng-hide="vm.isLoaded">
+                <div>
+                    <div>{{ 'admin.general.LOADING' | translate }}</div>
+                </div>
+            </div>
+
+            <div ng-show="vm.isLoaded">
+
+                <h3 class="mt0 mb-lg">
+                    <em class="{{ vm.icon }} mr"></em>{{ vm.title | translate }}
+                </h3>
+
+                <div ng-show="vm.errors.length > 0" class="alert alert-danger">
+                    <div ng-repeat="error in vm.errors track by $index">{{ error }}</div>
+                </div>
+
+                <wr-crud-dialog options="vm.form"  action-block="actionBlock" src=""></wr-crud-dialog>
+
+            </div>
+        </div>
+
+    </script>
+
+    <script type="text/ng-template" id="crud/show.html">
+
+        <div ng-controller="CRUDShowDialogController as vm">
+            <div class="whirl traditional" ng-hide="vm.isLoaded">
+                <div>
+                    <div>{{ 'admin.general.LOADING' | translate }}</div>
+                </div>
+            </div>
+
+            <div ng-show="vm.isLoaded">
+
+                <h3 class="mt0 mb-lg">
+                    <em class="{{ vm.icon }} mr"></em>{{ vm.title | translate }}
+                </h3>
+
+                <div ng-show="vm.errors.length > 0" class="alert alert-danger">
+                    <div ng-repeat="error in vm.errors track by $index">{{ error }}</div>
+                </div>
+
+                <wr-crud-dialog options="vm.form"></wr-crud-dialog>
+
+            </div>
+        </div>
+
+    </script>
+</div>

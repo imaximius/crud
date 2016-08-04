@@ -1,0 +1,15 @@
+<div class="btn-group"
+    uib-dropdown
+    dropdown-append-to-body = "true" >
+    <button class = "btn btn-xs btn-default dropdown-toggle"
+        id="{{uuid}}"
+        type = 'button'
+        aria-haspopup="true"
+        aria-expanded="true"
+        uib-dropdown-toggle><em class="icon-settings" /></button>
+    <ul class="dropdown-menu-right" role = 'menu' uib-dropdown-menu aria-labelledby="{{uuid}}">
+            <li ng-repeat="item in menu track by $index"
+                role="{{item==='divider'?'':'menuitem'}}"
+                ng-class="{divider: item==='divider'}"><a href="" ng-click="triggerCallback(item)"><em class="mr" ng-class="item.display.icon"></em>{{  item!=='divider'?item.display.label:'' | translate }}</a></li>
+    </ul>
+</div>

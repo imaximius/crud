@@ -1,0 +1,29 @@
+{
+
+  "scripts": {
+    "src": {
+      "path": "src/scripts",
+      "filter": [
+        "*.module.js",
+        "**/*.module.js",
+        "**/*.config.js",
+        "**/*.*.js"
+      ]
+    },
+    "dist": {
+      "path": "dist/js",
+      "name": "crud.js"
+    }
+  },
+
+  "views": {
+    "src": {
+      "path": "src/views",
+      "filter": "**/*.html"
+    },
+    "dist": {
+      "path": "dist/views"
+    }
+  }
+
+}

@@ -1,0 +1,15 @@
+
+<div id="filter" class="panel panel-default">
+    <div class="panel-heading">
+        <paneltool tool-collapse="tool-collapse" tool-refresh="traditional"></paneltool>
+        <h3 class="panel-title">
+            <em class="fa fa-filter mr-sm"></em>
+            {{ 'admin.general.FILTERS' | translate }}
+        </h3>
+    </div>
+    <div uib-collapse="filter" class="panel-wrapper">
+        <div class="panel-body">
+            <wr-crud-form  options="form.options" name="form.name" widgets="form.widgets" actions="form.actions"/>
+        </div>
+    </div>
+</div>

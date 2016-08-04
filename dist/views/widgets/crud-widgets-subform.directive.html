@@ -1,0 +1,15 @@
+<label class="col-lg-3 control-label">{{options.translateLabel | translate}}</label>
+<div class="col-lg-9">
+    <select
+        class="form-control"
+        name="{{name}}"
+        ng-model="value.value"
+        ng-disabled="!options.editable"
+        ng-options="choice.id as choice.label | translate for choice in options.choices"
+        ng-change="onValueChange()"/>
+    <div class="subform-container">
+        <div ng-repeat="(key, widget) in value.widgets">
+            <div wr-crud-widgets-dynamic="widget.type" ng-class="options.isGrid?'col-lg-6':''" class="crud-widgets form-group" name="value.widgets[$index].name" options="value.widgets[$index].options" value="value.widgets[$index].value"></div>
+        </div>
+    </div>
+</div>
